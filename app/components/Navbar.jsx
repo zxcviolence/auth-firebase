@@ -1,10 +1,10 @@
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { UserAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const { user, googleSignIn, logOut } = UserAuth();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = React.useState(true);
 
   const handleSignIn = async () => {
     try {
@@ -22,7 +22,7 @@ const Navbar = () => {
     }
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     const checkAuth = async () => {
       await new Promise((resolve) => setTimeout(resolve, 50));
       setLoading(false);
@@ -34,7 +34,7 @@ const Navbar = () => {
     <div className="h-20 w-full border-b-2 flex items-center justify-between p-2">
       <ul className="flex">
         <li className="p-2 cursor-pointer">
-          <Link href="/">Домой</Link>
+          <Link href="/">На главную</Link>
         </li>
         <li className="p-2 cursor-pointer">
           <Link href="/about">О нас</Link>
